@@ -76,8 +76,8 @@
         }
 
         .app-store-badge {
-            display: inline-block;
-            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .app-store-badge img {
@@ -87,6 +87,132 @@
 
         .app-store-badge img:hover {
             transform: scale(1.05);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .android-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #3DDC84;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            height: 55px;
+            transition: transform 0.2s, background 0.2s;
+            text-decoration: none;
+        }
+
+        .android-badge:hover {
+            transform: scale(1.05);
+            background: #2bbd6e;
+        }
+
+        .android-badge svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .android-badge-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .android-badge-text span:first-child {
+            font-size: 0.7rem;
+            font-weight: 400;
+        }
+
+        .android-badge-text span:last-child {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .android-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .android-modal-overlay.active {
+            display: flex;
+        }
+
+        .android-modal {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 35px;
+            max-width: 380px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .android-modal .modal-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .android-modal h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .android-modal p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .android-modal .ig-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .android-modal .ig-link:hover {
+            opacity: 0.9;
+        }
+
+        .android-modal .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #999;
+            line-height: 1;
+        }
+
+        .android-modal .close-btn:hover {
+            color: #333;
         }
 
         .features {
@@ -446,9 +572,21 @@
             <h1>DormDeal</h1>
             <p class="tagline">Buy & Sell with Students Only</p>
             <p class="subtitle">The trusted campus marketplace designed just for college students. Verified users, safe transactions, zero hassle.</p>
-            <a href="https://apps.apple.com/us/app/dormdeal/id6751549548" class="app-store-badge" target="_blank">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 135 40'%3E%3Crect fill='%23000' width='135' height='40' rx='5'/%3E%3Ctext x='67.5' y='20' fill='%23fff' text-anchor='middle' font-family='Arial' font-size='10' dy='.3em'%3EDownload on the App Store%3C/text%3E%3C/svg%3E" alt="Download on the App Store">
-            </a>
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/us/app/dormdeal/id6751549548" class="app-store-badge" target="_blank">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 135 40'%3E%3Crect fill='%23000' width='135' height='40' rx='5'/%3E%3Ctext x='67.5' y='20' fill='%23fff' text-anchor='middle' font-family='Arial' font-size='10' font-weight='bold' dy='.3em'%3EDownload on iOS%3C/text%3E%3C/svg%3E" alt="Download on iOS">
+                </a>
+                <button class="android-badge" onclick="document.getElementById('androidModal').classList.add('active')">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.523 15.341a.5.5 0 0 1-.5.5H6.977a.5.5 0 0 1-.5-.5V8.66a.5.5 0 0 1 .5-.5h10.046a.5.5 0 0 1 .5.5v6.681ZM4.5 9.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm15 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM8.5 3.5l1.5 2.5M15.5 3.5 14 6M6.977 8.16l1.023-1.66h8l1.023 1.66"/>
+                        <path d="M6.5 8h11v8.5a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V8ZM9 17v2.5M15 17v2.5"/>
+                    </svg>
+                    <div class="android-badge-text">
+                        <span>Get it on</span>
+                        <span>Android</span>
+                    </div>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -546,9 +684,21 @@
     <section class="cta-section">
         <h2>Join Your Campus Marketplace</h2>
         <p>Buy smarter, sell faster, and keep it all in the student community</p>
-        <a href="https://apps.apple.com/us/app/dormdeal/id6751549548" class="app-store-badge" target="_blank">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 135 40'%3E%3Crect fill='%23fff' width='135' height='40' rx='5'/%3E%3Ctext x='67.5' y='20' fill='%23000' text-anchor='middle' font-family='Arial' font-size='10' dy='.3em'%3EDownload on the App Store%3C/text%3E%3C/svg%3E" alt="Download on the App Store">
-        </a>
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/us/app/dormdeal/id6751549548" class="app-store-badge" target="_blank">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 135 40'%3E%3Crect fill='%23fff' width='135' height='40' rx='5'/%3E%3Ctext x='67.5' y='20' fill='%23000' text-anchor='middle' font-family='Arial' font-size='10' dy='.3em'%3EDownload on the App Store%3C/text%3E%3C/svg%3E" alt="Download on the App Store">
+            </a>
+            <button class="android-badge" onclick="document.getElementById('androidModal').classList.add('active')">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.523 15.341a.5.5 0 0 1-.5.5H6.977a.5.5 0 0 1-.5-.5V8.66a.5.5 0 0 1 .5-.5h10.046a.5.5 0 0 1 .5.5v6.681ZM4.5 9.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm15 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM8.5 3.5l1.5 2.5M15.5 3.5 14 6M6.977 8.16l1.023-1.66h8l1.023 1.66"/>
+                    <path d="M6.5 8h11v8.5a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V8ZM9 17v2.5M15 17v2.5"/>
+                </svg>
+                <div class="android-badge-text">
+                    <span>Get it on</span>
+                    <span>Android</span>
+                </div>
+            </button>
+        </div>
     </section>
 
     <section id="support" class="support-section">
@@ -635,6 +785,17 @@
             <p><strong>Account Termination:</strong> DormDeal reserves the right to suspend or terminate accounts for violations of these terms, fraudulent activity, or other conduct harmful to the community.</p>
         </div>
     </section>
+
+    <!-- Android Modal -->
+    <div id="androidModal" class="android-modal-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="android-modal">
+            <button class="close-btn" onclick="document.getElementById('androidModal').classList.remove('active')">&times;</button>
+            <div class="modal-icon">🤖</div>
+            <h3>Android Coming Soon!</h3>
+            <p>DormDeal for Android is currently in <strong>closed testing</strong>. DM us on Instagram to get access to the beta link.</p>
+            <a href="https://instagram.com/dormdealofficial" class="ig-link" target="_blank">DM @dormdealofficial</a>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
