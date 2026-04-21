@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tidal Labs - Capture Every Wave</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .back-nav {
+            background: #020f1a;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-nav a {
+            color: #6bb8d4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .back-nav a:hover {
+            color: #fff;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(160deg, #020f1a 0%, #0c3752 40%, #0ea5e9 100%);
+            color: white;
+            padding: 90px 20px 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: white;
+            border-radius: 50% 50% 0 0 / 80px 80px 0 0;
+        }
+
+        .wave-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .wave-bg::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: -10%;
+            width: 120%;
+            height: 300px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+            transform: rotate(-6deg);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.85);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.35rem;
+            margin-bottom: 14px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .hero .subtitle {
+            font-size: 1.05rem;
+            margin-bottom: 44px;
+            opacity: 0.8;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .device-pills {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .device-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            padding: 100px 20px 80px;
+            background: white;
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #0ea5e9;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #0c1a24;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #607080;
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto 60px;
+        }
+
+        .steps-flow {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+            position: relative;
+        }
+
+        .steps-flow::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, #0ea5e9, #0284c7);
+            z-index: 0;
+        }
+
+        .flow-step {
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-step-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 20px;
+            box-shadow: 0 6px 20px rgba(14,165,233,0.35);
+        }
+
+        .flow-step h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0c1a24;
+            margin-bottom: 8px;
+        }
+
+        .flow-step p {
+            font-size: 0.9rem;
+            color: #607080;
+            line-height: 1.6;
+        }
+
+        /* ===== FEATURES ===== */
+        .features {
+            background: #f0f8ff;
+            padding: 80px 20px;
+        }
+
+        .features-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 36px 30px;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,40,80,0.07);
+            transition: transform 0.25s, box-shadow 0.25s;
+            border-top: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,40,80,0.12);
+            border-top-color: #0ea5e9;
+        }
+
+        .feature-icon {
+            font-size: 2.4rem;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            color: #0284c7;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #607080;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #0c3752 0%, #0ea5e9 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+            margin-bottom: 2rem;
+        }
+
+        .app-store-btn:hover {
+            background: #222;
+            transform: scale(1.04);
+        }
+
+        .coming-soon-note {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            opacity: 0.65;
+        }
+
+        /* ===== POLICY SECTIONS ===== */
+        .policy-section {
+            padding: 70px 20px;
+        }
+
+        .policy-section:nth-child(even) {
+            background: #f7fbff;
+        }
+
+        .policy-section:nth-child(odd) {
+            background: white;
+        }
+
+        .policy-content {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .policy-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0c1a24;
+            margin-bottom: 8px;
+        }
+
+        .policy-meta {
+            font-size: 0.85rem;
+            color: #8a9baa;
+            margin-bottom: 32px;
+        }
+
+        .policy-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0284c7;
+            margin: 28px 0 10px;
+        }
+
+        .policy-content p {
+            color: #374151;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            font-size: 0.97rem;
+        }
+
+        .policy-content ul {
+            margin: 10px 0 20px 24px;
+            color: #4b5563;
+        }
+
+        .policy-content li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+            font-size: 0.97rem;
+        }
+
+        .policy-content a {
+            color: #0284c7;
+            text-decoration: none;
+        }
+
+        .policy-content a:hover {
+            text-decoration: underline;
+        }
+
+        .disclaimer-box {
+            background: #fff3cd;
+            border-left: 4px solid #f59e0b;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+
+        .disclaimer-box p {
+            color: #78350f;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* ===== POLICY NAV ===== */
+        .policy-nav {
+            background: #0c1a24;
+            padding: 40px 20px;
+        }
+
+        .policy-nav-content {
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .policy-nav-content h3 {
+            color: #e0f0fa;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .policy-nav-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .policy-nav-links a {
+            color: #0ea5e9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border: 2px solid #0ea5e9;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .policy-nav-links a:hover {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #020f1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin: 18px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #0ea5e9;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+
+        footer .muted {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            opacity: 0.45;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.6rem; }
+            .hero .tagline { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
+            .steps-flow::before { display: none; }
+            .features-grid { grid-template-columns: 1fr; }
+            .policy-nav-links { flex-direction: column; align-items: center; }
+            .policy-nav-links a { width: 100%; max-width: 280px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="back-nav">
+        <a href="/">&larr; All Apps</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wave-bg"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">iPhone + Apple Watch</span>
+            <h1>Tidal Labs</h1>
+            <p class="tagline">Your personal surf clip capture system.</p>
+            <p class="subtitle">Set up your iPhone on the beach, wear your Apple Watch in the water. Every session auto-captured, every clip auto-trimmed.</p>
+            <div class="device-pills">
+                <span class="device-pill">📱 iPhone</span>
+                <span class="device-pill">⌚ Apple Watch</span>
+                <span class="device-pill">🌊 Built for Surfers</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+        <p class="section-label">How It Works</p>
+        <h2 class="section-title">Simple Setup, Automatic Clips</h2>
+        <p class="section-subtitle">No camera operator needed. You surf, Tidal Labs handles the rest.</p>
+
+        <div class="steps-flow">
+            <div class="flow-step">
+                <div class="flow-step-icon">📱</div>
+                <h3>Set Up Your iPhone</h3>
+                <p>Position your iPhone on the beach pointing at the break. Hit record in the app.</p>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-icon">⌚</div>
+                <h3>Wear Your Watch</h3>
+                <p>Strap on your Apple Watch. Scroll the crown to start and stop logging a timestamp for each wave you catch.</p>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-icon">🔄</div>
+                <h3>Sync After Your Session</h3>
+                <p>Open the app on your iPhone. Watch data syncs wirelessly in seconds.</p>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-icon">✂️</div>
+                <h3>Get Your Clips</h3>
+                <p>The app cross-references timestamps with the footage and trims each wave automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">Everything a Surfer Needs</h2>
+        <p class="section-subtitle">Designed for solo surfers who want their sessions captured without a film crew.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⌚</div>
+                <h3>Watch-Powered Timestamps</h3>
+                <p>Scroll to start your session, scroll to end it. Your Apple Watch logs a precise timestamp for each wave you catch in between.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✂️</div>
+                <h3>Automatic Clip Trimming</h3>
+                <p>The app matches Watch timestamps to your iPhone footage and trims each ride into its own clip automatically.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📂</div>
+                <h3>Session Library</h3>
+                <p>All your sessions and clips are organized by date and location. Review your progression over time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Private by Default</h3>
+                <p>Your footage and session data stay on your device. We never upload your clips to any server.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎞️</div>
+                <h3>Share Your Best Waves</h3>
+                <p>Export individual clips to your Camera Roll and share anywhere with one tap.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏄</div>
+                <h3>Solo Surfer Friendly</h3>
+                <p>No buddies, no tripods with operators. Just you, your gear, and a fixed iPhone angle.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Capture Your Next Session</h2>
+        <p>Tidal Labs is coming soon to the App Store. Join the waitlist to be first in the water.</p>
+        <a href="mailto:getrebookedapp@gmail.com?subject=Tidal Labs Waitlist" class="app-store-btn">
+            🌊 Join the Waitlist
+        </a>
+        <p class="coming-soon-note">Requires iPhone and Apple Watch &bull; iOS 26+ &bull; watchOS 9+</p>
+    </section>
+
+    <!-- POLICY NAV -->
+    <div class="policy-nav">
+        <div class="policy-nav-content">
+            <h3>Legal &amp; Policies</h3>
+            <div class="policy-nav-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIVACY POLICY -->
+    <section id="privacy" class="policy-section">
+        <div class="policy-content">
+            <h2>Privacy Policy</h2>
+            <p class="policy-meta">Last updated: April 2026</p>
+
+            <p>Tidal Labs ("the App") is developed and operated by Micah Woodring. This Privacy Policy explains what data we collect, how we use it, and how we protect it.</p>
+
+            <h3>1. Data We Collect</h3>
+            <p>Tidal Labs is designed to process all data locally on your device. Specifically, we may collect or access:</p>
+            <ul>
+                <li><strong>Camera access</strong> &mdash; to record video through your iPhone camera during sessions</li>
+                <li><strong>Apple Watch motion and sensor data</strong> &mdash; to detect and timestamp wave events during your surf session</li>
+                <li><strong>Local storage</strong> &mdash; video clips and session data are stored on your device only</li>
+                <li><strong>App usage data</strong> &mdash; anonymous crash logs and diagnostics may be collected through Apple's standard crash reporting, subject to your system-level privacy settings</li>
+            </ul>
+
+            <h3>2. Data We Do Not Collect</h3>
+            <ul>
+                <li>We do not collect, upload, or store your video footage on any external server</li>
+                <li>We do not collect your name, email address, or any account information</li>
+                <li>We do not share any data with third parties for advertising or analytics</li>
+                <li>We do not use location data beyond what you optionally provide for session labeling</li>
+            </ul>
+
+            <h3>3. Apple Watch Data</h3>
+            <p>Sensor and motion data from your Apple Watch is used exclusively to detect wave timestamps during an active recording session. This data is processed on-device and is not transmitted anywhere.</p>
+
+            <h3>4. Camera & Microphone</h3>
+            <p>The App requires camera access to record footage. Microphone access may be requested as part of standard video recording. Recorded footage is saved directly to your device and is never uploaded by the App.</p>
+
+            <h3>5. Third-Party Services</h3>
+            <p>Tidal Labs does not integrate with any third-party analytics, advertising, or data broker services.</p>
+
+            <h3>6. Children's Privacy</h3>
+            <p>The App is not directed to children under the age of 13. We do not knowingly collect personal information from children.</p>
+
+            <h3>7. Changes to This Policy</h3>
+            <p>We may update this Privacy Policy from time to time. Continued use of the App after any changes constitutes acceptance of the new policy. The "last updated" date at the top reflects the most recent revision.</p>
+
+            <h3>8. Contact</h3>
+            <p>Questions about this Privacy Policy can be directed to <a href="mailto:getrebookedapp@gmail.com">getrebookedapp@gmail.com</a>.</p>
+        </div>
+    </section>
+
+    <!-- TERMS OF SERVICE -->
+    <section id="terms" class="policy-section">
+        <div class="policy-content">
+            <h2>Terms of Service</h2>
+            <p class="policy-meta">Last updated: April 2026</p>
+
+            <p>By downloading or using Tidal Labs, you agree to the following Terms of Service. Please read them carefully before use.</p>
+
+            <h3>1. Acceptance of Terms</h3>
+            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and Micah Woodring ("Developer"). Use of the App constitutes full acceptance of these Terms. If you do not agree, do not use the App.</p>
+
+            <h3>2. Description of the App</h3>
+            <p>Tidal Labs is a surf session capture tool that uses your iPhone camera and Apple Watch to record, timestamp, and automatically trim video clips of your surf sessions. The App is a personal productivity tool and does not provide any safety, emergency, or navigation functionality.</p>
+
+            <h3>3. Device Use and Risk</h3>
+            <div class="disclaimer-box">
+                <p><strong>Important:</strong> The following disclaimers apply to all use of Tidal Labs and the devices involved. By using the App, you expressly acknowledge and accept these risks.</p>
+            </div>
+
+            <p><strong>3a. iPhone and Apple Watch Damage</strong></p>
+            <p>The Developer is not responsible or liable for any damage to your iPhone, Apple Watch, or any other device arising from or related to your use of Tidal Labs. This includes, but is not limited to:</p>
+            <ul>
+                <li>Water damage to your iPhone from ocean spray, wave impact, or submersion, even if your device is rated water-resistant</li>
+                <li>Sand, salt, or debris damage to your iPhone or Apple Watch</li>
+                <li>Physical damage from falls, impacts, or theft of your device setup on the beach</li>
+                <li>Damage to your Apple Watch from water exposure during surfing, regardless of its water resistance rating</li>
+                <li>Battery degradation, overheating, or hardware failure resulting from extended outdoor use</li>
+                <li>Any other hardware or software malfunction of your iPhone or Apple Watch</li>
+            </ul>
+            <p>You are solely responsible for evaluating the suitability of your devices for use in or near the ocean, and for taking appropriate precautions. Water resistance ratings on Apple devices are not a guarantee against damage in all conditions, and surfing environments can exceed the specifications of consumer electronics.</p>
+
+            <p><strong>3b. Theft and Loss of Device</strong></p>
+            <p>Leaving your iPhone unattended on a beach or in any public location involves inherent risk of theft, loss, or damage. The Developer is not liable for:</p>
+            <ul>
+                <li>Theft of your iPhone, Apple Watch, or any accessories used in connection with Tidal Labs</li>
+                <li>Loss or misplacement of your device during or after a session</li>
+                <li>Unauthorized access to personal data on a lost or stolen device</li>
+                <li>Any financial losses resulting from device theft or loss</li>
+            </ul>
+            <p>You assume full responsibility for the security of your devices at all times. We strongly recommend using Find My (iPhone and Apple Watch), enabling a strong passcode, and never leaving devices unattended in high-theft-risk locations.</p>
+
+            <h3>4. Personal Safety</h3>
+            <p>Tidal Labs is designed to support recreational surfing and does not provide any safety monitoring, emergency alert, or real-time communication functionality. You assume all risks associated with surfing and ocean activities. The Developer is not liable for any personal injury, death, or other harm arising from your use of the App or participation in surfing activities.</p>
+
+            <h3>5. No Warranty</h3>
+            <p>Tidal Labs is provided "as is" and "as available" without warranty of any kind, express or implied. The Developer does not warrant that:</p>
+            <ul>
+                <li>The App will function correctly on all devices or in all conditions</li>
+                <li>Timestamps or clip trimming will be accurate in every situation</li>
+                <li>Video or session data will not be lost due to device failure, storage issues, or software errors</li>
+                <li>The App will be free from bugs, interruptions, or security vulnerabilities</li>
+            </ul>
+
+            <h3>6. Limitation of Liability</h3>
+            <p>To the maximum extent permitted by applicable law, the Developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of revenue, property damage, or personal injury, arising out of or in connection with your use of Tidal Labs or these Terms.</p>
+            <p>In no event shall the Developer's total liability to you exceed the amount you paid for the App (if any).</p>
+
+            <h3>7. User Responsibilities</h3>
+            <p>By using Tidal Labs, you agree to:</p>
+            <ul>
+                <li>Use the App only for lawful purposes</li>
+                <li>Respect the privacy of others: do not use the App to record individuals without their consent where required by law</li>
+                <li>Take full responsibility for the placement, security, and safety of your devices</li>
+                <li>Comply with all applicable laws, including those governing recording in public spaces in your jurisdiction</li>
+                <li>Not use the App in any manner that could endanger yourself or others</li>
+            </ul>
+
+            <h3>8. Intellectual Property</h3>
+            <p>All intellectual property in the App, including its design, code, name, and branding, is owned by Micah Woodring. You may not copy, modify, distribute, or reverse-engineer the App without express written permission.</p>
+
+            <h3>9. Governing Law</h3>
+            <p>These Terms are governed by the laws of the State of Hawaii, United States, without regard to conflict of law principles.</p>
+
+            <h3>10. Changes to These Terms</h3>
+            <p>The Developer reserves the right to update these Terms at any time. Continued use of the App after changes are posted constitutes acceptance of the revised Terms.</p>
+
+            <h3>11. Contact</h3>
+            <p>Questions regarding these Terms can be directed to <a href="mailto:getrebookedapp@gmail.com">getrebookedapp@gmail.com</a>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Micah Woodring. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="/">All Apps</a>
+                <a href="mailto:getrebookedapp@gmail.com">Contact</a>
+            </div>
+            <p class="muted">Tidal Labs &bull; iPhone + Apple Watch &bull; Requires iOS 26+ and watchOS 9+</p>
+        </div>
+    </footer>
+</body>
+</html>
