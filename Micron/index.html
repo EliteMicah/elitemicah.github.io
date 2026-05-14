@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micron — macOS Cron Job Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+            background: #161617;
+            color: #f5f5f7;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            padding: 18px 32px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #636366;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #f5f5f7;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            max-width: 680px;
+            margin: 60px auto 0;
+            padding: 0 32px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1;
+            margin-bottom: 18px;
+            color: #f5f5f7;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #8e8e93;
+            line-height: 1.6;
+            margin-bottom: 36px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #007AFF;
+            color: #fff;
+            text-decoration: none;
+            padding: 13px 26px;
+            border-radius: 980px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: opacity 0.2s;
+            margin-bottom: 14px;
+        }
+
+        .download-btn:hover {
+            opacity: 0.85;
+        }
+
+        .hero-meta {
+            display: block;
+            font-size: 0.8rem;
+            color: #48484a;
+            margin-top: 12px;
+        }
+
+        /* ===== SCREENSHOT ===== */
+        .screenshot-wrap {
+            max-width: 900px;
+            margin: 64px auto 0;
+            padding: 0 32px;
+        }
+
+        .screenshot-wrap img {
+            width: 100%;
+            display: block;
+        }
+
+        /* ===== FEATURES ===== */
+        .features {
+            max-width: 680px;
+            margin: 80px auto 0;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 56px;
+        }
+
+        .feat h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin-bottom: 6px;
+        }
+
+        .feat p {
+            font-size: 0.875rem;
+            color: #636366;
+            line-height: 1.65;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 100px;
+            padding: 32px;
+            border-top: 1px solid #2c2c2e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: #48484a;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        footer a {
+            font-size: 0.8rem;
+            color: #636366;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #f5f5f7;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.6rem; }
+            .features { grid-template-columns: 1fr; gap: 28px; }
+            footer { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">&larr; All Apps</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Micron</h1>
+        <p>A native macOS app for managing cron jobs. No terminal required. Reads and writes your crontab directly, so existing jobs always stay intact.</p>
+        <a href="https://github.com/EliteMicah/Micron/releases/tag/Main" class="download-btn">
+            Download Free
+        </a>
+        <span class="hero-meta">macOS 14 Sonoma or later &bull; Open Source</span>
+    </section>
+
+    <div class="screenshot-wrap">
+        <img src="app-screenshot.png" alt="Micron app showing a cron job editor with schedule builder and next run times">
+    </div>
+
+    <div class="features">
+        <div class="feat">
+            <h3>Sidebar Interface</h3>
+            <p>All your cron jobs in one place. Add, edit, and delete without touching the terminal.</p>
+        </div>
+        <div class="feat">
+            <h3>Schedule Builder</h3>
+            <p>Pick a preset or configure fields directly. See a plain-English description as you go.</p>
+        </div>
+        <div class="feat">
+            <h3>Next Run Preview</h3>
+            <p>Upcoming execution times shown for every job so you always know what runs and when.</p>
+        </div>
+        <div class="feat">
+            <h3>Quick Search</h3>
+            <p>Search across job names, commands, and schedules instantly across your full crontab.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Micah Woodring</p>
+        <div class="footer-links">
+            <a href="https://github.com/EliteMicah/Micron">GitHub</a>
+            <a href="https://github.com/EliteMicah/Micron/blob/main/LICENSE">License</a>
+            <a href="https://github.com/EliteMicah/Micron/releases/tag/Main">Download</a>
+            <a href="/">All Apps</a>
+        </div>
+    </footer>
+
+</body>
+</html>
