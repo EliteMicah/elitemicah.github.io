@@ -39,6 +39,8 @@
             align-items: center;
             gap: 0;
             width: 200px;
+            height: 100%;
+            padding-top: 20px;
         }
 
         .profile img {
@@ -51,14 +53,14 @@
         }
 
         .profile h1 {
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #1d1d1f;
             text-align: center;
         }
 
         .profile p {
-            font-size: 0.82rem;
+            font-size: 1rem;
             color: #86868b;
             text-align: center;
             margin-top: 4px;
@@ -119,7 +121,7 @@
 
         .app-item.dormdeal  { background: linear-gradient(135deg, #7C5AF5 0%, #4F31D4 100%); }
         .app-item.tidal     { background: linear-gradient(135deg, #35b8f0 0%, #1278b8 100%); }
-        .app-item.micron    { background: linear-gradient(135deg, #f5f5f7 0%, #d1d1d6 100%); }
+        .app-item.micron    { background: linear-gradient(135deg, #827b7b 0%, #ba0000 100%); }
 
         .app-item-left {
             display: flex;
@@ -145,13 +147,13 @@
         .app-name {
             font-size: 1.05rem;
             font-weight: 600;
-            color: #1d1d1f;
+            color: #fff;
             margin-bottom: 3px;
         }
 
         .app-desc {
             font-size: 0.875rem;
-            color: #6b7280;
+            color: rgba(255,255,255,0.75);
         }
 
         .app-item-right {
@@ -376,13 +378,7 @@
             <h2>Get in touch</h2>
             <p class="contact-sub">Have a question or just want to say hello?</p>
 
-            <!--
-                To activate this form:
-                1. Sign up free at formspree.io
-                2. Create a new form and copy your form ID
-                3. Replace YOUR_FORM_ID below with it (e.g. "xabc1234")
-            -->
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form action="https://formspree.io/f/maqvgpgy" method="POST">
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <textarea name="message" class="full" placeholder="Message" required></textarea>
