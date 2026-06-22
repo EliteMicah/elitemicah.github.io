@@ -508,8 +508,8 @@
         <div class="hero-content">
             <span class="hero-eyebrow">iPhone + Apple Watch</span>
             <h1>Tidal Labs</h1>
-            <p class="tagline">Your personal surf clip capture system.</p>
-            <p class="subtitle">Set up your iPhone on the beach, wear your Apple Watch in the water. Every session auto-captured, every clip auto-trimmed.</p>
+            <p class="tagline">Leave the phone. Tag your waves. Get the clips.</p>
+            <p class="subtitle">Film with your iPhone camera, tag waves from your wrist. Import the footage and every ride gets sliced into its own clip.</p>
             <div class="device-pills">
                 <span class="device-pill">📱 iPhone</span>
                 <span class="device-pill">⌚ Apple Watch</span>
@@ -527,23 +527,23 @@
         <div class="steps-flow">
             <div class="flow-step">
                 <div class="flow-step-icon">📱</div>
-                <h3>Set Up Your iPhone</h3>
-                <p>Position your iPhone on the beach pointing at the break. Hit record in the app.</p>
+                <h3>Film with Native Camera</h3>
+                <p>Open the iPhone Camera app, frame the lineup, and set your phone down. Hit record and leave it.</p>
             </div>
             <div class="flow-step">
                 <div class="flow-step-icon">⌚</div>
-                <h3>Wear Your Watch</h3>
-                <p>Strap on your Apple Watch. Scroll the crown to start and stop logging a timestamp for each wave you catch.</p>
+                <h3>Tag Waves from Your Wrist</h3>
+                <p>Caught one? Scroll the Digital Crown up on your Apple Watch. It logs a precise timestamp for every wave you ride.</p>
             </div>
             <div class="flow-step">
-                <div class="flow-step-icon">🔄</div>
-                <h3>Sync After Your Session</h3>
-                <p>Open the app on your iPhone. Watch data syncs wirelessly in seconds.</p>
+                <div class="flow-step-icon">📥</div>
+                <h3>Import Your Footage</h3>
+                <p>Back on the sand, open Tidal Labs and import the clip from your camera roll. Watch data syncs automatically.</p>
             </div>
             <div class="flow-step">
                 <div class="flow-step-icon">✂️</div>
                 <h3>Get Your Clips</h3>
-                <p>The app cross-references timestamps with the footage and trims each wave automatically.</p>
+                <p>The app matches timestamps to your footage and trims each wave into its own clip automatically.</p>
             </div>
         </div>
     </section>
@@ -558,7 +558,7 @@
             <div class="feature-card">
                 <div class="feature-icon">⌚</div>
                 <h3>Watch-Powered Timestamps</h3>
-                <p>Scroll to start your session, scroll to end it. Your Apple Watch logs a precise timestamp for each wave you catch in between.</p>
+                <p>Scroll the Digital Crown up to tag a wave. Start and end sessions from your wrist. Each scroll logs a precise timestamp used to trim your clip.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">✂️</div>
@@ -583,7 +583,22 @@
             <div class="feature-card">
                 <div class="feature-icon">🏄</div>
                 <h3>Solo Surfer Friendly</h3>
-                <p>No buddies, no tripods with operators. Just you, your gear, and a fixed iPhone angle.</p>
+                <p>No buddies, no operators. Just you, your gear, the native Camera app, and a fixed iPhone angle.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>Auto Spot Detection</h3>
+                <p>After each session, the app uses your location to automatically name the nearest surf spot via Surfline.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">❤️</div>
+                <h3>Workout Tracking</h3>
+                <p>The Apple Watch logs your surf session as an outdoor workout in the Health app, complete with heart rate data.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Configurable Clip Length</h3>
+                <p>Set how far back each tag reaches, from 30 seconds to 3 minutes. Tune it to your style of surfing.</p>
             </div>
         </div>
     </section>
@@ -620,8 +635,10 @@
             <h3>1. Data We Collect</h3>
             <p>Tidal Labs is designed to process all data locally on your device. Specifically, we may collect or access:</p>
             <ul>
-                <li><strong>Camera access</strong> &mdash; to record video through your iPhone camera during sessions</li>
+                <li><strong>Photo Library access</strong> &mdash; to import video footage you recorded with the native Camera app from your camera roll</li>
                 <li><strong>Apple Watch motion and sensor data</strong> &mdash; to detect and timestamp wave events during your surf session</li>
+                <li><strong>Location</strong> &mdash; used once after import to identify the nearest surf spot via the Surfline API; not stored or tracked continuously</li>
+                <li><strong>HealthKit</strong> &mdash; the Apple Watch logs your session as an outdoor surfing workout with heart rate data, stored in the Health app on your device</li>
                 <li><strong>Local storage</strong> &mdash; video clips and session data are stored on your device only</li>
                 <li><strong>App usage data</strong> &mdash; anonymous crash logs and diagnostics may be collected through Apple's standard crash reporting, subject to your system-level privacy settings</li>
             </ul>
@@ -630,18 +647,18 @@
             <ul>
                 <li>We do not collect, upload, or store your video footage on any external server</li>
                 <li>We do not collect your name, email address, or any account information</li>
-                <li>We do not share any data with third parties for advertising or analytics</li>
-                <li>We do not use location data beyond what you optionally provide for session labeling</li>
+                <li>We do not share any data with third parties for advertising or analytics purposes</li>
+                <li>Location data is used only to identify the nearest surf spot via the Surfline API and is not stored or shared beyond that request</li>
             </ul>
 
             <h3>3. Apple Watch Data</h3>
             <p>Sensor and motion data from your Apple Watch is used exclusively to detect wave timestamps during an active recording session. This data is processed on-device and is not transmitted anywhere.</p>
 
-            <h3>4. Camera & Microphone</h3>
-            <p>The App requires camera access to record footage. Microphone access may be requested as part of standard video recording. Recorded footage is saved directly to your device and is never uploaded by the App.</p>
+            <h3>4. Photo Library</h3>
+            <p>The App requires Photo Library access to import video footage you recorded with the native Camera app. The App does not record video itself. Imported footage is processed on-device and is never uploaded by the App.</p>
 
             <h3>5. Third-Party Services</h3>
-            <p>Tidal Labs does not integrate with any third-party analytics, advertising, or data broker services.</p>
+            <p>Tidal Labs does not integrate with any third-party analytics, advertising, or data broker services. The App does send your approximate GPS location to the Surfline public API solely to identify the nearest surf spot name for your session label. No personal information is transmitted in this request.</p>
 
             <h3>6. Children's Privacy</h3>
             <p>The App is not directed to children under the age of 13. We do not knowingly collect personal information from children.</p>
@@ -666,7 +683,7 @@
             <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and Micah Woodring ("Developer"). Use of the App constitutes full acceptance of these Terms. If you do not agree, do not use the App.</p>
 
             <h3>2. Description of the App</h3>
-            <p>Tidal Labs is a surf session capture tool that uses your iPhone camera and Apple Watch to record, timestamp, and automatically trim video clips of your surf sessions. The App is a personal productivity tool and does not provide any safety, emergency, or navigation functionality.</p>
+            <p>Tidal Labs is a surf session capture tool. You record footage using the native iPhone Camera app, then import it into Tidal Labs. The app uses your Apple Watch to timestamp waves during your session and automatically trims your footage into individual clips. The App is a personal productivity tool and does not provide any safety, emergency, or navigation functionality.</p>
 
             <h3>3. Device Use and Risk</h3>
             <div class="disclaimer-box">
