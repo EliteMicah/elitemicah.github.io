@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["475T56N7DY.com.elitemicah.DormDeal"],
+        "components": [
+          { "/": "/open*" }
+        ]
+      }
+    ]
+  }
+}
