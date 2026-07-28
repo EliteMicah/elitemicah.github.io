@@ -37,6 +37,16 @@
     }
     h1 { font-size: 1.6rem; font-weight: 700; color: #111827; margin-bottom: 8px; }
     p { font-size: 0.95rem; color: #4B5563; line-height: 1.6; margin-bottom: 28px; }
+    .spinner {
+      width: 28px;
+      height: 28px;
+      margin: 0 auto 20px;
+      border: 3px solid #E5E7EB;
+      border-top-color: #027BFF;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
     .btn {
       display: block;
       background: #027BFF;
@@ -54,6 +64,7 @@
       background: #F3F4F6;
       color: #111827;
     }
+    .fallback { display: none; }
     .android-section { display: none; }
     .android-section p {
       font-size: 0.9rem;
@@ -79,35 +90,62 @@
   <div class="card">
     <div class="logo">🎓</div>
     <h1>DormDeal</h1>
-    <p id="main-desc">Your school was just approved! Download the app to sign up and start buying and selling with your campus community.</p>
 
-    <a href="https://apps.apple.com/us/app/dormdeal/id6751549548" class="btn" id="ios-btn" style="display:none">Download on the App Store</a>
-    <a href="dormdeal://signUpScreen" class="btn secondary" id="open-btn" style="display:none">Open DormDeal</a>
+    <div id="opening-state">
+      <div class="spinner"></div>
+      <p id="opening-desc">Your school was just approved! Opening DormDeal…</p>
+    </div>
 
-    <div class="android-section" id="android-section">
-      <p>Android is coming soon! Drop your email and we'll add you to our beta testers.</p>
-      <form class="beta-form" id="beta-form" action="https://formspree.io/f/maqvgpgy" method="POST">
-        <input type="hidden" name="type" value="Android Beta Request">
-        <input type="email" name="email" placeholder="Your email" required>
-        <button type="submit" class="btn" style="border:none;cursor:pointer;">Join Android Beta</button>
-      </form>
-      <p class="success-msg" id="success-msg">You're on the list! We'll reach out soon.</p>
+    <div class="fallback" id="fallback-state">
+      <p id="main-desc">Didn't open automatically? Your school was just approved, jump back in below.</p>
+      <a href="dormdeal://signUpScreen" class="btn" id="open-btn" style="display:none">Open DormDeal</a>
+      <a href="https://apps.apple.com/us/app/dormdeal/id6751549548" class="btn" id="ios-btn" style="display:none;background:#D24824">Open on the App Store</a>
+
+      <div class="android-section" id="android-section">
+        <p>Don't have DormDeal on Android yet? Drop your email and we'll add you to our beta testers.</p>
+        <form class="beta-form" id="beta-form" action="https://formspree.io/f/maqvgpgy" method="POST">
+          <input type="hidden" name="type" value="Android Beta Request">
+          <input type="email" name="email" placeholder="Your email" required>
+          <button type="submit" class="btn" style="border:none;cursor:pointer;">Join Android Beta</button>
+        </form>
+        <p class="success-msg" id="success-msg">You're on the list! We'll reach out soon.</p>
+      </div>
     </div>
   </div>
   <script>
     const ua = navigator.userAgent;
     const isIOS = /iPhone|iPad|iPod/.test(ua);
     const isAndroid = /Android/.test(ua);
+    const openingState = document.getElementById('opening-state');
+    const fallbackState = document.getElementById('fallback-state');
 
-    if (isIOS) {
-      document.getElementById('ios-btn').style.display = 'block';
-      document.getElementById('open-btn').style.display = 'block';
-    } else if (isAndroid) {
-      document.getElementById('main-desc').textContent = 'Your school was just approved! Android is coming soon — join the beta to be first in line.';
-      document.getElementById('android-section').style.display = 'block';
+    function showFallback() {
+      if (document.hidden) return; // app opened, tab is backgrounded, nothing to do
+      openingState.style.display = 'none';
+      fallbackState.style.display = 'block';
+
+      if (isIOS) {
+        document.getElementById('open-btn').style.display = 'block';
+        document.getElementById('ios-btn').style.display = 'block';
+      } else if (isAndroid) {
+        document.getElementById('open-btn').style.display = 'block';
+        document.getElementById('android-section').style.display = 'block';
+        document.getElementById('main-desc').textContent =
+          "Didn't open automatically? Your school was just approved, jump back in below.";
+      } else {
+        document.getElementById('ios-btn').style.display = 'block';
+        document.getElementById('android-section').style.display = 'block';
+      }
+    }
+
+    if (isIOS || isAndroid) {
+      // Custom scheme still works from most in-app browsers (Mail, Gmail) even
+      // when universal/app links don't fire there, so try it first and only
+      // fall back to the download prompt if we're still here after a beat.
+      window.location.href = 'dormdeal://signUpScreen';
+      setTimeout(showFallback, 1800);
     } else {
-      document.getElementById('ios-btn').style.display = 'block';
-      document.getElementById('android-section').style.display = 'block';
+      showFallback();
     }
 
     document.getElementById('beta-form').addEventListener('submit', async (e) => {
