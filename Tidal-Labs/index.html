@@ -123,6 +123,28 @@
             margin-right: auto;
         }
 
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .app-store-badge {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .app-store-badge img {
+            height: 55px;
+            transition: transform 0.2s;
+        }
+
+        .app-store-badge img:hover {
+            transform: scale(1.05);
+        }
+
         .device-pills {
             display: flex;
             gap: 12px;
@@ -270,6 +292,20 @@
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 10px;
+        }
+
+        .new-badge {
+            display: inline-block;
+            background: #0ea5e9;
+            color: white;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 50px;
+            margin-left: 8px;
+            vertical-align: middle;
         }
 
         .feature-card p {
@@ -506,13 +542,19 @@
     <section class="hero">
         <div class="wave-bg"></div>
         <div class="hero-content">
-            <span class="hero-eyebrow">iPhone + Apple Watch</span>
+            <span class="hero-eyebrow">iPhone + Apple Watch or Garmin</span>
             <h1>Tidal Labs</h1>
             <p class="tagline">Leave the phone. Tag your waves. Get the clips.</p>
-            <p class="subtitle">Film with your iPhone camera, tag waves from your wrist. Import the footage and every ride gets sliced into its own clip.</p>
+            <p class="subtitle">Film with your iPhone camera, tag waves from your wrist. Import the footage and every ride gets sliced into its own clip, ready to trim, reframe, and share.</p>
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/us/app/tidal-labs/id6762887601" class="app-store-badge" target="_blank" rel="noopener">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 135 40'%3E%3Crect fill='%23000' width='135' height='40' rx='5'/%3E%3Ctext x='67.5' y='20' fill='%23fff' text-anchor='middle' font-family='Arial' font-size='10' dy='.3em'%3EDownload on the App Store%3C/text%3E%3C/svg%3E" alt="Download on the App Store">
+                </a>
+            </div>
             <div class="device-pills">
                 <span class="device-pill">📱 iPhone</span>
                 <span class="device-pill">⌚ Apple Watch</span>
+                <span class="device-pill">🧭 Garmin</span>
                 <span class="device-pill">🌊 Built for Surfers</span>
             </div>
         </div>
@@ -533,7 +575,7 @@
             <div class="flow-step">
                 <div class="flow-step-icon">⌚</div>
                 <h3>Tag Waves from Your Wrist</h3>
-                <p>Caught one? Scroll the Digital Crown up on your Apple Watch. It logs a precise timestamp for every wave you ride.</p>
+                <p>Caught one? Scroll the Digital Crown up on Apple Watch, or press DOWN on your Garmin. Either way you get a precise timestamp for every wave you ride.</p>
             </div>
             <div class="flow-step">
                 <div class="flow-step-icon">📥</div>
@@ -543,7 +585,7 @@
             <div class="flow-step">
                 <div class="flow-step-icon">✂️</div>
                 <h3>Get Your Clips</h3>
-                <p>The app matches timestamps to your footage and trims each wave into its own clip automatically.</p>
+                <p>The app matches timestamps to your footage and trims each wave into its own clip. Open the session to swipe through every ride, then trim and reframe the keepers.</p>
             </div>
         </div>
     </section>
@@ -558,7 +600,7 @@
             <div class="feature-card">
                 <div class="feature-icon">⌚</div>
                 <h3>Watch-Powered Timestamps</h3>
-                <p>Scroll the Digital Crown up to tag a wave. Start and end sessions from your wrist. Each scroll logs a precise timestamp used to trim your clip.</p>
+                <p>Tag a wave with the Digital Crown on Apple Watch or the DOWN button on Garmin. Start and end sessions from your wrist. Each tag logs a precise timestamp used to trim your clip.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">✂️</div>
@@ -568,7 +610,7 @@
             <div class="feature-card">
                 <div class="feature-icon">📂</div>
                 <h3>Session Library</h3>
-                <p>All your sessions and clips are organized by date and location. Review your progression over time.</p>
+                <p>All your sessions and clips are organized by date and location, each one showing a real frame from the water. Review your progression over time.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
@@ -578,7 +620,7 @@
             <div class="feature-card">
                 <div class="feature-icon">🎞️</div>
                 <h3>Share Your Best Waves</h3>
-                <p>Export individual clips to your Camera Roll and share anywhere with one tap.</p>
+                <p>Export individual clips to your Camera Roll and share anywhere with one tap. Clips export video-only, so files stay small and playback never interrupts your music.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🏄</div>
@@ -593,7 +635,22 @@
             <div class="feature-card">
                 <div class="feature-icon">❤️</div>
                 <h3>Workout Tracking</h3>
-                <p>The Apple Watch logs your surf session as an outdoor workout in the Health app, complete with heart rate data.</p>
+                <p>Apple Watch logs your session as an outdoor workout in the Health app with heart rate data. On Garmin, each session records as a surfing activity with one lap per wave, plus GPS track and heart rate, and syncs to Garmin Connect like any other activity.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧭</div>
+                <h3>Garmin Support<span class="new-badge">New</span></h3>
+                <p>Tag waves from a fenix, Instinct, Forerunner, Venu, or vívoactive. Physical buttons only, because a wet touchscreen taps itself. Wave times push to your iPhone over Bluetooth.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎬</div>
+                <h3>Full-Session Clip Editor<span class="new-badge">New</span></h3>
+                <p>Sessions open straight into a landscape player. Swipe between waves, trim the dead air off either end, and reframe any clip. Cropping is non-destructive, so the original framing is always one tap away.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Auto-Follow Crop<span class="new-badge">Beta</span></h3>
+                <p>Optional. Uses your session GPS track and on-device person detection to pan and zoom each clip so you stay in frame. Experimental, so it ships off. Turn it on in Settings.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">⏱️</div>
@@ -606,11 +663,11 @@
     <!-- CTA -->
     <section class="cta-section">
         <h2>Capture Your Next Session</h2>
-        <p>Tidal Labs is coming soon to the App Store. Join the waitlist to be first in the water.</p>
-        <a href="mailto:micahs.tech@proton.me?subject=Tidal Labs Waitlist" class="app-store-btn">
-            🌊 Join the Waitlist
+        <p>Tidal Labs is out now on the App Store. Download it and get your next session on film.</p>
+        <a href="https://apps.apple.com/us/app/tidal-labs/id6762887601" class="app-store-btn" target="_blank" rel="noopener">
+            &#63743; Download on the App Store
         </a>
-        <p class="coming-soon-note">Requires iPhone and Apple Watch &bull; iOS 26+ &bull; watchOS 9+</p>
+        <p class="coming-soon-note">Requires iPhone (iOS 26+) &bull; Apple Watch (watchOS 9+) or a compatible Garmin</p>
     </section>
 
     <!-- POLICY NAV -->
@@ -628,7 +685,7 @@
     <section id="privacy" class="policy-section">
         <div class="policy-content">
             <h2>Privacy Policy</h2>
-            <p class="policy-meta">Last updated: April 2026</p>
+            <p class="policy-meta">Last updated: August 2026</p>
 
             <p>Tidal Labs ("the App") is developed and operated by Micah Woodring. This Privacy Policy explains what data we collect, how we use it, and how we protect it.</p>
 
@@ -637,7 +694,8 @@
             <ul>
                 <li><strong>Photo Library access</strong> &mdash; to import video footage you recorded with the native Camera app from your camera roll</li>
                 <li><strong>Apple Watch motion and sensor data</strong> &mdash; to detect and timestamp wave events during your surf session</li>
-                <li><strong>Location</strong> &mdash; used once after import to identify the nearest surf spot via the Surfline API; not stored or tracked continuously</li>
+                <li><strong>Location</strong> &mdash; used after import to identify the nearest surf spot via the Surfline API. If you enable Auto-Follow Crop, the watch also records a GPS track during the session and the phone reads its own position once at import, so the App can work out where you were relative to the camera</li>
+                <li><strong>Bluetooth</strong> &mdash; used only to talk to a paired Garmin watch and pull the wave times it recorded</li>
                 <li><strong>HealthKit</strong> &mdash; the Apple Watch logs your session as an outdoor surfing workout with heart rate data, stored in the Health app on your device</li>
                 <li><strong>Local storage</strong> &mdash; video clips and session data are stored on your device only</li>
                 <li><strong>App usage data</strong> &mdash; anonymous crash logs and diagnostics may be collected through Apple's standard crash reporting, subject to your system-level privacy settings</li>
@@ -648,25 +706,34 @@
                 <li>We do not collect, upload, or store your video footage on any external server</li>
                 <li>We do not collect your name, email address, or any account information</li>
                 <li>We do not share any data with third parties for advertising or analytics purposes</li>
-                <li>Location data is used only to identify the nearest surf spot via the Surfline API and is not stored or shared beyond that request</li>
+                <li>Location data leaves your device only as an approximate position sent to the Surfline API to name the nearest surf spot. GPS tracks recorded for Auto-Follow Crop stay on your device</li>
+                <li>We do not run any facial recognition, and we do not identify who appears in your footage</li>
             </ul>
 
             <h3>3. Apple Watch Data</h3>
-            <p>Sensor and motion data from your Apple Watch is used exclusively to detect wave timestamps during an active recording session. This data is processed on-device and is not transmitted anywhere.</p>
+            <p>Sensor and motion data from your Apple Watch is used exclusively to detect wave timestamps during an active recording session. When Auto-Follow Crop is enabled, the Watch also records a GPS track for the duration of the session. This data is processed on-device and is not transmitted anywhere by the App.</p>
 
-            <h3>4. Photo Library</h3>
+            <h3>4. Garmin Watches</h3>
+            <p>The App can pair with a compatible Garmin watch running the Tidal Labs Connect IQ app. Pairing and communication use the Garmin Connect IQ SDK, which reaches the watch over Bluetooth and routes the paired-device list through the Garmin Connect Mobile app. Only wave timestamps are pulled from the watch, and they are stored on your device.</p>
+            <p>Separately from the App, your Garmin watch records the session as a standard surfing activity in a FIT file, including lap times, GPS track, and heart rate. That activity syncs to Garmin Connect through Garmin's own software, under Garmin's privacy policy and your Garmin account settings. Tidal Labs neither controls nor receives that sync.</p>
+
+            <h3>5. Photo Library</h3>
             <p>The App requires Photo Library access to import video footage you recorded with the native Camera app. The App does not record video itself. Imported footage is processed on-device and is never uploaded by the App.</p>
 
-            <h3>5. Third-Party Services</h3>
-            <p>Tidal Labs does not integrate with any third-party analytics, advertising, or data broker services. The App does send your approximate GPS location to the Surfline public API solely to identify the nearest surf spot name for your session label. No personal information is transmitted in this request.</p>
+            <h3>6. Video Analysis</h3>
+            <p>Auto-Follow Crop is optional and off by default. When you turn it on, the App analyzes imported footage on your device using Apple's Vision framework to locate a person in frame, combined with the GPS track from your session, so it can pan and zoom each clip. The analysis runs entirely on-device, no frames or detection results leave your phone, and no faces are recognized or identified.</p>
 
-            <h3>6. Children's Privacy</h3>
+            <h3>7. Third-Party Services</h3>
+            <p>Tidal Labs does not integrate with any third-party analytics, advertising, or data broker services. The App does send your approximate GPS location to the Surfline public API solely to identify the nearest surf spot name for your session label. No personal information is transmitted in this request.</p>
+            <p>If you use a Garmin watch, the App uses Garmin's Connect IQ SDK and the Garmin Connect Mobile app to reach your watch. Your use of Garmin devices and software is governed by Garmin's own terms and privacy policy.</p>
+
+            <h3>8. Children's Privacy</h3>
             <p>The App is not directed to children under the age of 13. We do not knowingly collect personal information from children.</p>
 
-            <h3>7. Changes to This Policy</h3>
+            <h3>9. Changes to This Policy</h3>
             <p>We may update this Privacy Policy from time to time. Continued use of the App after any changes constitutes acceptance of the new policy. The "last updated" date at the top reflects the most recent revision.</p>
 
-            <h3>8. Contact</h3>
+            <h3>10. Contact</h3>
             <p>Questions about this Privacy Policy can be directed to <a href="mailto:micahs.tech@proton.me">micahs.tech@proton.me</a>.</p>
         </div>
     </section>
@@ -675,7 +742,7 @@
     <section id="terms" class="policy-section">
         <div class="policy-content">
             <h2>Terms of Service</h2>
-            <p class="policy-meta">Last updated: April 2026</p>
+            <p class="policy-meta">Last updated: August 2026</p>
 
             <p>By downloading or using Tidal Labs, you agree to the following Terms of Service. Please read them carefully before use.</p>
 
@@ -683,34 +750,35 @@
             <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and Micah Woodring ("Developer"). Use of the App constitutes full acceptance of these Terms. If you do not agree, do not use the App.</p>
 
             <h3>2. Description of the App</h3>
-            <p>Tidal Labs is a surf session capture tool. You record footage using the native iPhone Camera app, then import it into Tidal Labs. The app uses your Apple Watch to timestamp waves during your session and automatically trims your footage into individual clips. The App is a personal productivity tool and does not provide any safety, emergency, or navigation functionality.</p>
+            <p>Tidal Labs is a surf session capture tool. You record footage using the native iPhone Camera app, then import it into Tidal Labs. The App uses an Apple Watch or a compatible Garmin watch to timestamp waves during your session and automatically trims your footage into individual clips. It also provides editing tools for trimming and reframing those clips. The App is a personal productivity tool and does not provide any safety, emergency, or navigation functionality.</p>
+            <p><strong>Trimming is destructive.</strong> Trimming a clip rewrites that clip's video file in place and the removed footage cannot be recovered from within the App. Cropping is stored as metadata only and can be cleared at any time. Keep your original camera roll footage if you want a copy you can always return to.</p>
 
             <h3>3. Device Use and Risk</h3>
             <div class="disclaimer-box">
                 <p><strong>Important:</strong> The following disclaimers apply to all use of Tidal Labs and the devices involved. By using the App, you expressly acknowledge and accept these risks.</p>
             </div>
 
-            <p><strong>3a. iPhone and Apple Watch Damage</strong></p>
-            <p>The Developer is not responsible or liable for any damage to your iPhone, Apple Watch, or any other device arising from or related to your use of Tidal Labs. This includes, but is not limited to:</p>
+            <p><strong>3a. iPhone, Apple Watch, and Garmin Watch Damage</strong></p>
+            <p>The Developer is not responsible or liable for any damage to your iPhone, Apple Watch, Garmin watch, or any other device arising from or related to your use of Tidal Labs. This includes, but is not limited to:</p>
             <ul>
                 <li>Water damage to your iPhone from ocean spray, wave impact, or submersion, even if your device is rated water-resistant</li>
-                <li>Sand, salt, or debris damage to your iPhone or Apple Watch</li>
+                <li>Sand, salt, or debris damage to your iPhone, Apple Watch, or Garmin watch</li>
                 <li>Physical damage from falls, impacts, or theft of your device setup on the beach</li>
-                <li>Damage to your Apple Watch from water exposure during surfing, regardless of its water resistance rating</li>
+                <li>Damage to your Apple Watch or Garmin watch from water exposure during surfing, regardless of its water resistance rating</li>
                 <li>Battery degradation, overheating, or hardware failure resulting from extended outdoor use</li>
-                <li>Any other hardware or software malfunction of your iPhone or Apple Watch</li>
+                <li>Any other hardware or software malfunction of your iPhone, Apple Watch, or Garmin watch</li>
             </ul>
-            <p>You are solely responsible for evaluating the suitability of your devices for use in or near the ocean, and for taking appropriate precautions. Water resistance ratings on Apple devices are not a guarantee against damage in all conditions, and surfing environments can exceed the specifications of consumer electronics.</p>
+            <p>You are solely responsible for evaluating the suitability of your devices for use in or near the ocean, and for taking appropriate precautions. Water resistance ratings on Apple, Garmin, and other consumer devices are not a guarantee against damage in all conditions, and surfing environments can exceed the specifications of consumer electronics.</p>
 
             <p><strong>3b. Theft and Loss of Device</strong></p>
             <p>Leaving your iPhone unattended on a beach or in any public location involves inherent risk of theft, loss, or damage. The Developer is not liable for:</p>
             <ul>
-                <li>Theft of your iPhone, Apple Watch, or any accessories used in connection with Tidal Labs</li>
+                <li>Theft of your iPhone, Apple Watch, Garmin watch, or any accessories used in connection with Tidal Labs</li>
                 <li>Loss or misplacement of your device during or after a session</li>
                 <li>Unauthorized access to personal data on a lost or stolen device</li>
                 <li>Any financial losses resulting from device theft or loss</li>
             </ul>
-            <p>You assume full responsibility for the security of your devices at all times. We strongly recommend using Find My (iPhone and Apple Watch), enabling a strong passcode, and never leaving devices unattended in high-theft-risk locations.</p>
+            <p>You assume full responsibility for the security of your devices at all times. We strongly recommend using Find My (iPhone and Apple Watch) or the equivalent Garmin feature, enabling a strong passcode, and never leaving devices unattended in high-theft-risk locations.</p>
 
             <h3>4. Personal Safety</h3>
             <p>Tidal Labs is designed to support recreational surfing and does not provide any safety monitoring, emergency alert, or real-time communication functionality. You assume all risks associated with surfing and ocean activities. The Developer is not liable for any personal injury, death, or other harm arising from your use of the App or participation in surfing activities.</p>
@@ -720,7 +788,9 @@
             <ul>
                 <li>The App will function correctly on all devices or in all conditions</li>
                 <li>Timestamps or clip trimming will be accurate in every situation</li>
-                <li>Video or session data will not be lost due to device failure, storage issues, or software errors</li>
+                <li>Auto-Follow Crop, which is an experimental feature disabled by default, will correctly track you or keep you in frame. It depends on GPS accuracy, camera placement, lens choice, and on-device person detection, any of which can be wrong</li>
+                <li>Watch data will sync from every Apple Watch or Garmin device, or that Bluetooth or Garmin Connect Mobile will be available when you need them</li>
+                <li>Video or session data will not be lost due to device failure, storage issues, editing operations, or software errors</li>
                 <li>The App will be free from bugs, interruptions, or security vulnerabilities</li>
             </ul>
 
@@ -761,7 +831,7 @@
                 <a href="/">All Apps</a>
                 <a href="mailto:micahs.tech@proton.me">Contact</a>
             </div>
-            <p class="muted">Tidal Labs &bull; iPhone + Apple Watch &bull; Requires iOS 26+ and watchOS 9+</p>
+            <p class="muted">Tidal Labs &bull; iPhone + Apple Watch or Garmin &bull; Requires iOS 26+ and watchOS 9+</p>
         </div>
     </footer>
 </body>
