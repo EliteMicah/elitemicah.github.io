@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DormDeal - The Campus Marketplace</title>
+    <link rel="icon" type="image/png" href="/DormDeal/icon.png">
+    <link rel="apple-touch-icon" href="/DormDeal/icon.png">
     <style>
         * {
             margin: 0;
@@ -82,6 +84,17 @@
             font-weight: 700;
             margin-bottom: 20px;
             line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25em;
+        }
+
+        .hero h1 img {
+            width: 1.1em;
+            height: 1.1em;
+            border-radius: 0.24em;
+            flex-shrink: 0;
         }
 
         .hero .tagline {
@@ -596,7 +609,7 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>DormDeal</h1>
+            <h1><img src="/DormDeal/icon.png" alt="">DormDeal</h1>
             <p class="tagline">The Campus Marketplace</p>
             <p class="subtitle">Students sell with a verified school email. Everyone else can browse and message. Textbooks, dorm gear, and campus events, all in one place.</p>
             <div class="download-buttons">
