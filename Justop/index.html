@@ -228,7 +228,7 @@
             <h3>2. Data Stored on Your Device</h3>
             <p>The App keeps the following in a private App Group container on your iPhone. It never leaves the device, and it is not backed up to any service operated by the developer:</p>
             <ul>
-                <li><strong>Your schedules</strong> &mdash; the name, days of the week, and start and end times you enter</li>
+                <li><strong>Your schedules</strong> &mdash; the name, days of the week, and either the start/end times or the daily time limit you enter</li>
                 <li><strong>Your app selections</strong> &mdash; stored as opaque tokens issued by iOS (see section 3)</li>
                 <li><strong>Unlock session state</strong> &mdash; whether an unlock timer is running and when it started</li>
                 <li><strong>Trial and purchase state</strong> &mdash; the date you first opened the App, and whether the one-time unlock has been purchased</li>
@@ -279,7 +279,7 @@
             <p>By downloading or using Justop, you agree to these Terms. Please read them before use.</p>
 
             <h3>1. What the App Does</h3>
-            <p>Justop applies iOS Screen Time restrictions to the apps, categories, and websites you select, during the schedules you set. Once a schedule is running, the App's own unlock path requires holding a four-hour session with Justop in the foreground.</p>
+            <p>Justop applies iOS Screen Time restrictions to the apps, categories, and websites you select, either during the clock windows you set or once a daily time limit you set is used up. Once a schedule is running, the App's own unlock path requires holding a four-hour session with Justop in the foreground.</p>
 
             <h3>2. Trial and Purchase</h3>
             <p>Justop is free to use for two days from first launch. After that, a one-time purchase of $4.99 (or the equivalent in your local currency) unlocks the App permanently. There is no subscription and no recurring charge.</p>
@@ -318,7 +318,7 @@
             <p>Email <a href="mailto:micahs.tech@proton.me">micahs.tech@proton.me</a> with any question, bug, or request. Include your iOS version and what you were doing when the problem happened.</p>
 
             <h3>Nothing is being blocked</h3>
-            <p>Check three things: Screen Time access is granted (Settings inside Justop shows "granted"), the schedule is enabled, and the current time falls inside the schedule's window. Blocks apply at the start of a window, so a schedule created mid-window may not shield until Justop is brought to the foreground.</p>
+            <p>Check three things: Screen Time access is granted (Settings inside Justop shows "granted"), the schedule is enabled, and either the current time falls inside the schedule's window or, for a time limit, the daily allowance has been used up. Blocks apply at the start of a window, so a schedule created mid-window may not shield until Justop is brought to the foreground. A time limit only shields once iOS reports the threshold reached, which can lag actual usage slightly.</p>
 
             <h3>The blocks disappeared</h3>
             <p>Either the trial ended without a purchase, vacation mode is running, or Screen Time access was turned off in iOS Settings. The Home screen shows a banner for the last of these.</p>
