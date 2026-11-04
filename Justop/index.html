@@ -79,6 +79,32 @@
         .hero .tagline { font-size: 1.15rem; color: #B4ADA4; margin-bottom: 10px; }
         .hero .subtitle { font-size: 0.92rem; color: #7E776F; }
 
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .dl-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: 980px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1.5px solid #C2703F;
+            transition: background 0.2s, color 0.2s, opacity 0.2s;
+        }
+
+        .dl-btn.primary { background: #C2703F; color: #12100F; }
+        .dl-btn.primary:hover { opacity: 0.85; }
+        .dl-btn.secondary { color: #E7E2DB; border-color: #4A443F; }
+        .dl-btn.secondary:hover { border-color: #C2703F; color: #F4F1EC; }
+
         /* ===== POLICY NAV ===== */
         .policy-nav { background: #0C0B0A; padding: 36px 20px; }
 
@@ -191,10 +217,14 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-eyebrow">iPhone &bull; iOS 16+</span>
+            <span class="hero-eyebrow">iPhone &bull; Mac</span>
             <h1><img src="/Justop/icon.png" alt="">Justop</h1>
             <p class="tagline">Block the apps you can't put down.</p>
             <p class="subtitle">Set a schedule. Once it starts, there's no snoozing.</p>
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/us/app/justop-app-screen-blocker/id6812060120" class="dl-btn primary" target="_blank" rel="noopener">&#63743; Download on the App Store</a>
+                <a href="https://github.com/EliteMicah/Justop-Mac" class="dl-btn secondary" target="_blank" rel="noopener">Download for Mac</a>
+            </div>
         </div>
     </section>
 
@@ -203,12 +233,28 @@
         <div class="policy-nav-content">
             <h3>Legal &amp; Support</h3>
             <div class="policy-nav-links">
+                <a href="#about">About</a>
                 <a href="#privacy">Privacy Policy</a>
                 <a href="#terms">Terms of Use</a>
                 <a href="#support">Support</a>
             </div>
         </div>
     </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="policy-section">
+        <div class="policy-content">
+            <h2>About Justop</h2>
+            <p class="policy-meta">Justop for iPhone &bull; iOS 16 and later</p>
+
+            <p>Justop blocks the apps you choose during the schedules you set. Once a schedule starts, the only way to open those apps early is to hold a four-hour unlock session with Justop on screen.</p>
+            <p>Blocking is enforced by iOS Screen Time, and iOS always leaves you a way out: you can turn off Justop's Screen Time access in iOS Settings, or delete the App, and every block lifts immediately.</p>
+
+            <div class="callout">
+                <p><strong>Want to close that door?</strong> Ask someone you trust to set a Screen Time passcode for you and turn on Content &amp; Privacy Restrictions &rarr; iTunes &amp; App Store Purchases &rarr; Deleting Apps &rarr; Don't Allow.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- PRIVACY POLICY -->
     <section id="privacy" class="policy-section">
@@ -274,7 +320,7 @@
     <section id="terms" class="policy-section">
         <div class="policy-content">
             <h2>Terms of Use</h2>
-            <p class="policy-meta">Last updated: September 2026</p>
+            <p class="policy-meta">Last updated: November 2026</p>
 
             <p>By downloading or using Justop, you agree to these Terms. Please read them before use.</p>
 
@@ -282,7 +328,7 @@
             <p>Justop applies iOS Screen Time restrictions to the apps, categories, and websites you select, either during the clock windows you set or once a daily time limit you set is used up. Once a schedule is running, the App's own unlock path requires holding a four-hour session with Justop in the foreground.</p>
 
             <h3>2. Trial and Purchase</h3>
-            <p>Justop is free to use for two days from first launch. After that, a one-time purchase of $4.99 (or the equivalent in your local currency) unlocks the App permanently. There is no subscription and no recurring charge.</p>
+            <p>Justop is free to use for three days from first launch. After that, a one-time purchase of $4.99 (or the equivalent in your local currency) unlocks the App permanently. There is no subscription and no recurring charge.</p>
             <p>When the trial ends without a purchase, blocking stops: existing blocks are lifted, no new blocks are applied, and creating schedules, editing schedules, and starting unlock sessions are unavailable until the App is purchased. Your schedules are kept and resume working the moment you purchase.</p>
             <p>The trial period is tracked on your device. Deleting and reinstalling the App restarts it.</p>
 
@@ -335,6 +381,7 @@
         <div class="footer-content">
             <p>&copy; 2026 Micah.Tech. All rights reserved.</p>
             <div class="footer-links">
+                <a href="#about">About</a>
                 <a href="#privacy">Privacy Policy</a>
                 <a href="#terms">Terms of Use</a>
                 <a href="#support">Support</a>
