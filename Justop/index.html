@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justop - Block the apps you can't put down</title>
-    <meta name="description" content="Justop blocks the apps you choose during the schedules you set. No account, no analytics, nothing leaves your iPhone.">
+    <meta name="description" content="Justop blocks the apps you choose on a schedule, after a daily time limit, after a session of use, or right now. No account, no analytics, nothing leaves your iPhone.">
     <link rel="icon" type="image/png" href="/Justop/icon.png">
     <link rel="apple-touch-icon" href="/Justop/icon.png">
     <style>
@@ -220,7 +220,7 @@
             <span class="hero-eyebrow">iPhone &bull; Mac</span>
             <h1><img src="/Justop/icon.png" alt="">Justop</h1>
             <p class="tagline">Block the apps you can't put down.</p>
-            <p class="subtitle">Set a schedule. Once it starts, there's no snoozing.</p>
+            <p class="subtitle">Schedules, time limits, cooldowns and instant blocks. Once a block starts, there's no snoozing.</p>
             <div class="download-buttons">
                 <a href="https://apps.apple.com/us/app/justop-app-screen-blocker/id6812060120" class="dl-btn primary" target="_blank" rel="noopener">&#63743; Download on the App Store</a>
                 <a href="https://github.com/EliteMicah/Justop-Mac" class="dl-btn secondary" target="_blank" rel="noopener">Download for Mac</a>
@@ -247,7 +247,15 @@
             <h2>About Justop</h2>
             <p class="policy-meta">Justop for iPhone &bull; iOS 16 and later</p>
 
-            <p>Justop blocks the apps you choose during the schedules you set. Once a schedule starts, the only way to open those apps early is to hold a four-hour unlock session with Justop on screen.</p>
+            <p>Justop blocks the apps, categories and websites you choose, four ways:</p>
+            <ul>
+                <li><strong>Schedule:</strong> blocked during the days and hours you set</li>
+                <li><strong>Time limit:</strong> blocked for the rest of the day once you use a daily amount, from 15 minutes to 4 hours</li>
+                <li><strong>Cooldown:</strong> after 15 minutes to 2 hours of use, apps lock for a cooldown of up to 12 hours, then reopen with the count reset</li>
+                <li><strong>Instant block:</strong> blocked right now, for 15 minutes to 12 hours</li>
+            </ul>
+            <p>Save apps you always block together as a group and pick them in one tap. Home shows a four-week chart of your daily screen time.</p>
+            <p>Once a schedule or instant block starts, the only way to open those apps early is to hold a four-hour unlock session with Justop on screen. A cooldown has no early exit; it reopens when the cooldown ends.</p>
             <p>Blocking is enforced by iOS Screen Time, and iOS always leaves you a way out: you can turn off Justop's Screen Time access in iOS Settings, or delete the App, and every block lifts immediately.</p>
 
             <div class="callout">
@@ -260,7 +268,7 @@
     <section id="privacy" class="policy-section">
         <div class="policy-content">
             <h2>Privacy Policy</h2>
-            <p class="policy-meta">Last updated: September 2026</p>
+            <p class="policy-meta">Last updated: November 2026</p>
 
             <p>Justop ("the App") is developed and operated by Micah.Tech. This Privacy Policy explains what the App stores, what it does not, and who can see it.</p>
 
@@ -274,23 +282,25 @@
             <h3>2. Data Stored on Your Device</h3>
             <p>The App keeps the following in a private App Group container on your iPhone. It never leaves the device, and it is not backed up to any service operated by the developer:</p>
             <ul>
-                <li><strong>Your schedules</strong> &mdash; the name, days of the week, and either the start/end times or the daily time limit you enter</li>
-                <li><strong>Your app selections</strong> &mdash; stored as opaque tokens issued by iOS (see section 3)</li>
-                <li><strong>Unlock session state</strong> &mdash; whether an unlock timer is running and when it started</li>
-                <li><strong>Trial and purchase state</strong> &mdash; the date you first opened the App, and whether the one-time unlock has been purchased</li>
-                <li><strong>Vacation mode counters</strong> &mdash; how many of the month's allowance you have used</li>
+                <li><strong>Your schedules:</strong> the name, days of the week, and the start/end times, daily time limit, or session and cooldown lengths you enter</li>
+                <li><strong>Your app selections and app groups:</strong> group names you enter, and app selections stored as opaque tokens issued by iOS (see section 3)</li>
+                <li><strong>Block state:</strong> when an instant block ends, when a cooldown is locked until, and whether an unlock timer is running and when it started</li>
+                <li><strong>Trial and purchase state:</strong> the date you first opened the App, and whether the one-time unlock has been purchased</li>
+                <li><strong>Vacation mode counters:</strong> how many of the month's allowance you have used</li>
             </ul>
 
             <h3>3. Screen Time and Family Controls</h3>
             <p>Justop uses Apple's Screen Time frameworks (FamilyControls, ManagedSettings, DeviceActivity) with individual authorization. This is the only mechanism iOS provides for one app to hide another, and it is why the App asks for Screen Time access on first launch.</p>
             <p>When you pick apps, categories, or websites to block, iOS hands the App opaque tokens rather than names or bundle identifiers. <strong>The App is never told which apps you selected.</strong> It cannot read them, log them, or transmit them, because it never has them in a readable form.</p>
-            <p>Justop does not read your Screen Time usage statistics, pickup counts, notification counts, or any usage history. It does not use Screen Time data for advertising, profiling, marketing, analytics, or any purpose other than applying the blocks you configured on the device where you configured them.</p>
+            <p>The screen time chart on the Home screen is drawn by a Screen Time report extension (DeviceActivityReport). iOS runs that extension in a sandbox that cannot make network requests or pass usage data back to the rest of the App. It only reads daily usage totals to draw the chart on your screen; nothing is stored or sent. A short, fixed list of navigation and music apps (such as Maps and Spotify) is left out of those totals.</p>
+            <p>Justop does not use Screen Time data for advertising, profiling, marketing, analytics, or any purpose other than applying the blocks you configured and showing you your own screen time on the device where you configured them.</p>
 
             <h3>4. Network Activity</h3>
-            <p>The App makes no network requests. Two buttons hand off to destinations outside the App, and neither one sends your data anywhere:</p>
+            <p>The App makes no network requests. A few buttons hand off to destinations outside the App, and none of them sends your data anywhere:</p>
             <ul>
                 <li><strong>"Fix in Settings"</strong> opens the iOS Settings app on your device</li>
                 <li><strong>"Redeem a code"</strong> opens Apple's redemption page at apps.apple.com, because iOS provides no in-app redemption sheet for one-time purchases</li>
+                <li><strong>"About &amp; Privacy"</strong> and <strong>"Contact me"</strong> open this website in your browser</li>
             </ul>
 
             <h3>5. Purchases</h3>
@@ -325,7 +335,7 @@
             <p>By downloading or using Justop, you agree to these Terms. Please read them before use.</p>
 
             <h3>1. What the App Does</h3>
-            <p>Justop applies iOS Screen Time restrictions to the apps, categories, and websites you select, either during the clock windows you set or once a daily time limit you set is used up. Once a schedule is running, the App's own unlock path requires holding a four-hour session with Justop in the foreground.</p>
+            <p>Justop applies iOS Screen Time restrictions to the apps, categories, and websites you select: during the clock windows you set, once a daily time limit you set is used up, for a cooldown after a session of use, or for the length of an instant block. Once a schedule or instant block is running, the App's own unlock path requires holding a four-hour session with Justop in the foreground. A running cooldown cannot be unlocked early.</p>
 
             <h3>2. Trial and Purchase</h3>
             <p>Justop is free to use for three days from first launch. After that, a one-time purchase of $4.99 (or the equivalent in your local currency) unlocks the App permanently. There is no subscription and no recurring charge.</p>
@@ -364,7 +374,7 @@
             <p>Email <a href="mailto:micahs.tech@proton.me">micahs.tech@proton.me</a> with any question, bug, or request. Include your iOS version and what you were doing when the problem happened.</p>
 
             <h3>Nothing is being blocked</h3>
-            <p>Check three things: Screen Time access is granted (Settings inside Justop shows "granted"), the schedule is enabled, and either the current time falls inside the schedule's window or, for a time limit, the daily allowance has been used up. Blocks apply at the start of a window, so a schedule created mid-window may not shield until Justop is brought to the foreground. A time limit only shields once iOS reports the threshold reached, which can lag actual usage slightly.</p>
+            <p>Check three things: Screen Time access is granted (Settings inside Justop shows "granted"), the schedule is enabled, and either the current time falls inside the schedule's window or, for a time limit or cooldown, the allowed time has been used up. Time limits and cooldowns count only time spent in the blocked apps. Blocks apply at the start of a window, so a schedule created mid-window may not shield until Justop is brought to the foreground. Time limits and cooldowns only shield once iOS reports the threshold reached, which can lag actual usage slightly.</p>
 
             <h3>The blocks disappeared</h3>
             <p>Either the trial ended without a purchase, vacation mode is running, or Screen Time access was turned off in iOS Settings. The Home screen shows a banner for the last of these.</p>
